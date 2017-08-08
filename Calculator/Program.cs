@@ -6,9 +6,9 @@ using System.Windows.Forms;
 /*
  * Name: Rosa Munguia
  * Student No: 300735300
- * Date: August 3 2017
+ * Date: August 8 2017
  * Description: Calculator Demo Project
- * Version 0.1: Created project
+ * Version 0.2: Updated to splash form
  * */
 namespace Calculator
 {

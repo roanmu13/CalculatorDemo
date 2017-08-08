@@ -32,5 +32,19 @@ namespace Calculator
         {
 
         }
+
+        private void CalculatorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// Event handler for formClosing event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalculatorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();//this closes the application
+        }
     }
 }
