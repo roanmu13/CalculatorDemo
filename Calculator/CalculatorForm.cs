@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,20 @@ namespace Calculator
 {
     public partial class CalculatorForm : Form
     {
+        //private InstanceCreationEditor variable
+        private bool _isDecimalClicked;
+        //public properties
+        public bool IsDecimalClicked
+        {
+            get
+            {
+                return this._isDecimalClicked;
+            }
+            set
+            {
+                this._isDecimalClicked = value;
+            }
+        }
         public CalculatorForm()
         {
             InitializeComponent();
@@ -45,6 +60,45 @@ namespace Calculator
         private void CalculatorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();//this closes the application
+        }
+       
+        /// <summary>
+        /// this is the shared event handler for the calculator buttons
+        /// Not including the operator buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalculatorButton_Click(object sender, EventArgs e)
+        {
+            Button calculatorButton = sender as Button; //downcasting
+
+            if((calculatorButton.Text==".") && (this.IsDecimalClicked))
+            {
+                    return;
+               
+            }
+
+            ResultTextBox.Text += calculatorButton.Text;
+
+            //Debug.WriteLine("A calculator button was clicked");
+        }
+        /// <summary>
+        /// This is the shared event handler for the operator buttons of the calculator
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OperatorButton_Click(object sender, EventArgs e)
+        {
+            Button operatorButton = sender as Button; //downcasting
+        }
+        /// <summary>
+        /// this is the event handler for the "Load" event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalculatorForm_Load(object sender, EventArgs e)
+        {
+            this.IsDecimalClicked = false;
         }
     }
 }

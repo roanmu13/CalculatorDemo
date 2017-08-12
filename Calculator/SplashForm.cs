@@ -34,5 +34,10 @@ namespace Calculator
             this.Hide();
             SplashFormTimer.Enabled = false;
         }
+
+        private void SplashForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
